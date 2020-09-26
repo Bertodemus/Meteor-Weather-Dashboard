@@ -14,11 +14,9 @@
     <main class="container-fluid">
         <div id="accordion">
             <div class="card mt-3">
-                
                 <div class="card-header p-0" id="headingOne">
                     <h4 class="mb-0">
                         <button class="btn btn-secondary w-100 text-right" data-toggle="collapse" data-target="#collapseOne">
-
                             <div class="row">
                                 <div class="col-8 text-left">
                                     <h4>M E T E O R</h4> 
@@ -27,61 +25,35 @@
                                     <h4<i class="fas fa-search"></i></h4>
                                 </div>
                             </div>
-
                         </button>
                     </h4>
                 </div>
-
 
                     <div id="collapseOne" class="collapse" data-parent="#accordion">
                         <div class="card-body" style="background-color: #fff">
 
                             <div class="form-row mb-2">
                                 <div class="col-10">
-                                    <!-- <div class="form-group"> -->
-                                        <!-- <label for="search-Form">CITY:</label> -->
                                         <input type="text" class="form-control h-100" id="search-Form" placeholder="enter city name">
-                                    <!-- </div> -->
                                 </div>
                                 <div class="col-2">
-                                    <!-- <label for="submit-Btn"></label> -->
-                                    <button type="button" id="submit-Btn" class="btn btn-warning">SEARCH</button>
+                                    <button type="button" id="searchBtn" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne">SEARCH</button>
                                 </div>
                                     
                             </div>
 
+                            <div id="prevSearch" class="form-row">
+                            </div>
+
                             <div class="form-row">
                                 <div class="col-12 mb-1">
-                                    <button class="btn btn-secondary w-100">
-                                        CITY #1
-                                    </button>
-                                </div>
-                                <div class="col-12 mb-1">
-                                    <button class="btn btn-secondary w-100">
-                                        CITY #2
-                                    </button>
-                                </div>
-                                <div class="col-12 mb-1">
-                                    <button class="btn btn-secondary w-100">
-                                        CITY #3
-                                    </button>
-                                </div>
-                                <div class="col-12 mb-1">
-                                    <button class="btn btn-secondary w-100">
-                                        CITY #4
-                                    </button>
-                                </div>
-                                <div class="col-12 mb-1">
-                                    <button class="btn btn-secondary w-100">
-                                        CITY #5
+                                    <button id="clearBtn" class="btn btn-danger w-100">
+                                        CLEAR SEARCHES
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <!-- </div> -->
-                <!-- <button type="button" id="submit-Btn" class="btn btn-dark">SEARCH</button>
-                <button type="button" id="clear-Btn" class="btn btn-dark">CLEAR</button> -->
             </div>
         </div>
 
@@ -93,14 +65,14 @@
                     <div id="currentCity" class="card-body">
                         <div class="row">
                             <div class="col-4 text-center my-auto">
-                                <img src="images/01dshaded.png">
+                                <img id="cardStatus" src="">
                             </div>
                             <div class="col-8 text-right">
-                                <p class="mb-1">Richmond, VIRGINIA</p>
+                                <p id="cardCity" class="mb-1">Richmond, VIRGINIA</p>
                                 <hr class="mt-0 mb-1">
-                                <p class="mb-1">September 25, 2020</p>
-                                <p class="mb-1">Currently: 61 F</p>
-                                <p class="mb-1">62 F / 45 F</p>
+                                <p id="cardDate" class="mb-1">September 25, 2020</p>
+                                <p id="cardTemp" class="mb-1">Currently: 61 F</p>
+                                <p id="cardHilow" class="mb-1">62 F / 45 F</p>
                             </div>
                         </div>
                         <hr>
@@ -162,6 +134,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha512-QEiC894KVkN9Tsoi6+mKf8HaCLJvyA6QIRzY5KrfINXYuP9NxdIkRQhGq3BZi0J4I7V5SidGM3XUQ5wFiMDuWg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="moment-timezone-with-data.js"></script>
     <script src="script.js"></script>   
 </body>
 
