@@ -1,0 +1,20 @@
+body {
+    background-color: #a2a2a2;
+}
+
+main {
+    max-width: 750px;
+}
+
+/* .progress{
+    transform: rotate(-90deg);
+    width: 15%;
+    height: 100px;
+    float: left;
+    display: inline-block;
+    position: relative;
+  } */
+
+/* .graphH {
+    height: 500px;
+} */
