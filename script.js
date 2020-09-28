@@ -179,7 +179,7 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
               $("#fiveDay").empty();
               for (i=1; i < 6; i++) {
                 var foreDate = moment().add(i, 'days').format("dddd, MMMM Do YYYY");
-                $("#fiveDay").append("<div class='col-12 text-left mb-1 my-auto forecast'>"+foreDate+"<img src='http://openweathermap.org/img/wn/"+response.daily[i].weather[0].icon+".png'>Temperature: "+Math.round((((response.daily[i].temp.day-273.15)*1.8)+32))+"F Humidity: "+response.daily[i].humidity+"% </div>");
+                $("#fiveDay").append("<div class='col-12 text-left mb-1 my-auto forecast'>"+foreDate+"<img src='https://openweathermap.org/img/wn/"+response.daily[i].weather[0].icon+".png'>Temperature: "+Math.round((((response.daily[i].temp.day-273.15)*1.8)+32))+"F Humidity: "+response.daily[i].humidity+"% </div>");
               }
           });
       }
@@ -189,7 +189,7 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
         updateUVI();
         updateForecast();
         setTimeout(function() {
-            $("#cardStatus").attr("src","http://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png");
+            $("#cardStatus").attr("src","https://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png");
             $("#cardCity").html(weatherInfo.name);
             $("#cardTemp").html("Currently: "+Math.round((((weatherInfo.main.temp-273.15)*1.8)+32))+"F");
             $("#cardHilow").html(Math.round((((weatherInfo.main.temp_max-273.15)*1.8)+32))+"F / "+Math.round((((weatherInfo.main.temp_min-273.15)*1.8)+32))+"F");
@@ -210,7 +210,7 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
         updateUVI();
         updateForecast();
         setTimeout(function() {
-            $("#cardStatus").attr("src","http://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png");
+            $("#cardStatus").attr("src","https://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png");
             $("#cardCity").html(weatherInfo.name);
             $("#cardTemp").html("Currently: "+Math.round((((weatherInfo.main.temp-273.15)*1.8)+32))+"F");
             $("#cardHilow").html(Math.round((((weatherInfo.main.temp_max-273.15)*1.8)+32))+"F / "+Math.round((((weatherInfo.main.temp_min-273.15)*1.8)+32))+"F");
