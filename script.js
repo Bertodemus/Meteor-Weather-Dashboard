@@ -169,10 +169,25 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
           });
       }
     
+      function updateForecast() {
+        var uFqueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+weatherInfo.coord.lat+"&lon="+weatherInfo.coord.lon+"&exclude=current,minutely,hourly,alerts&cnt=5&appid=33a9e9a3d35d99cb12be3090a81d6df0";
+        $.ajax({
+            url: uFqueryURL,
+            method: "GET"
+          }).then(function(response){
+              console.log(response);
+              $("#fiveDay").empty();
+              for (i=1; i < 6; i++) {
+                var foreDate = moment().add(i, 'days').format("dddd, MMMM Do YYYY");
+                $("#fiveDay").append("<div class='col-12 text-left mb-1 my-auto forecast'>"+foreDate+"<img src='http://openweathermap.org/img/wn/"+response.daily[i].weather[0].icon+".png'>Temperature: "+Math.round((((response.daily[i].temp.day-273.15)*1.8)+32))+"F Humidity: "+response.daily[i].humidity+"% </div>");
+              }
+          });
+      }
 
 
       function updateCurrent() {
         updateUVI();
+        updateForecast();
         setTimeout(function() {
             $("#cardStatus").attr("src","http://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png");
             $("#cardCity").html(weatherInfo.name);
@@ -193,6 +208,7 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
         weatherInfo = WeatherData;
 
         updateUVI();
+        updateForecast();
         setTimeout(function() {
             $("#cardStatus").attr("src","http://openweathermap.org/img/wn/"+weatherInfo.weather[0].icon+"@2x.png");
             $("#cardCity").html(weatherInfo.name);
@@ -227,6 +243,13 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
     }
     
 // Chart shenanigans
+var bar_ctx = document.getElementById('uvChart').getContext('2d');
+
+var background_1 = bar_ctx.createLinearGradient(0, 0, 0, 95);
+background_1.addColorStop(0, 'rgba(217, 83, 79, 0.95)');
+background_1.addColorStop(1, 'rgba(255, 186, 21, 0.7)');
+
+
 
 
     var humidChart = new Chart(cth, {    type: 'bar',
@@ -301,11 +324,12 @@ var uvChart = new Chart(ctu, {    type: 'bar',
 data: {
     labels: ['UV INDEX'+' '+uvIndex],
     datasets: [{
+        backgroundColor: background_1,
         data: [uvIndex],
-        backgroundColor: [
-            'rgba(255, 186, 21, 0.5)',
+        // backgroundColor: [
+        //     'rgba(255, 186, 21, 0.5)',
 
-        ],
+        // ],
     }]
 },
 options: {

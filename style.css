@@ -1,9 +1,18 @@
 body {
     background-color: #a2a2a2;
+    min-width: 745px;
 }
 
 main {
     max-width: 750px;
+}
+
+.searchBox {
+    background-color: #fff;
+}
+
+.forecast {
+    background-color:rgba(0, 0, 0, 0.05);
 }
 
 /* .progress{
