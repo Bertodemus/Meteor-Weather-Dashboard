@@ -109,11 +109,11 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
         // console.log("------------------------------------");
         var currentCity = WeatherData.name;
         var cityCheck = $("button:contains('"+currentCity+"')")
-        console.log(currentCity);
-        console.log(histClick);
-        console.log($("button").filter(".stored").html());
-        console.log($(cityCheck).html());
-        console.log(histStoredFirst);
+        // console.log(currentCity);
+        // console.log(histClick);
+        // console.log($("button").filter(".stored").html());
+        // console.log($(cityCheck).html());
+        // console.log(histStoredFirst);
 
 
         // console.log($(".stored").filter(currentCity).html());
@@ -129,8 +129,8 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
             locHistory++;
         }
         histClick = false;
-        console.log("clicked");
-        console.log(histClick);
+        // console.log("clicked");
+        // console.log(histClick);
       }
 
 
@@ -159,7 +159,7 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
       }
 
       function updateUVI() {
-        var uvqueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat="+weatherInfo.coord.lat+"&lon="+weatherInfo.coord.lon+"&appid=33a9e9a3d35d99cb12be3090a81d6df0";
+        var uvqueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat="+weatherInfo.coord.lat+"&lon="+weatherInfo.coord.lon+"&appid=33a9e9a3d35d99cb12be3090a81d6df0";
         $.ajax({
             url: uvqueryURL,
             method: "GET"
@@ -175,7 +175,7 @@ $("#cardDate").text(moment().format("dddd, MMMM Do YYYY"));
             url: uFqueryURL,
             method: "GET"
           }).then(function(response){
-              console.log(response);
+            //   console.log(response);
               $("#fiveDay").empty();
               for (i=1; i < 6; i++) {
                 var foreDate = moment().add(i, 'days').format("dddd, MMMM Do YYYY");
