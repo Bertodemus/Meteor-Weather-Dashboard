@@ -12,7 +12,8 @@ main {
 }
 
 .forecast {
-    background-color:rgba(0, 0, 0, 0.05);
+    background-color:rgba(0, 0, 0, 0.125);
+    color: #343434;
 }
 
 /* .progress{
