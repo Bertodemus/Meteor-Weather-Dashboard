@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <title>METEOR</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="bootstrap.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Main content with current weather -->
     <main class="container-fluid">
         <div id="accordion">
             <div class="card mt-3">
@@ -22,121 +23,103 @@
                                     <h4>M E T E<img class="ml-1 mb-1" src="images/or.png"></h4> 
                                 </div>
                                 <div class="col-4 text-right">
-                                    <h4<i class="fas fa-search"></i></h4>
+                                    <h4><i class="fas fa-search"></i></h4>
                                 </div>
                             </div>
                         </button>
                     </h4>
                 </div>
+                <!-- This is the collapse search area -->
+                <div id="collapseOne" class="collapse" data-parent="#accordion">
+                    <div class="card-body searchBox">
 
-                    <div id="collapseOne" class="collapse" data-parent="#accordion">
-                        <div class="card-body searchBox">
-
-                            <div class="form-row mb-2">
-                                <div class="col-10">
-                                        <input type="text" class="form-control h-100" id="search-Form" placeholder="enter city name">
-                                </div>
-                                <div class="col-2">
-                                    <button type="button" id="searchBtn" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne">SEARCH</button>
-                                </div>
-                                    
+                        <div class="form-row mb-2">
+                            <div class="col-10">
+                                    <input type="text" class="form-control h-100" id="search-Form" placeholder="enter city name">
                             </div>
-
-                            <div id="prevSearch" class="form-row">
+                            <div class="col-2">
+                                <button type="button" id="searchBtn" class="btn btn-warning" data-toggle="collapse" data-target="#collapseOne">SEARCH</button>
                             </div>
+                                
+                        </div>
 
-                            <div class="form-row">
-                                <div class="col-12 mb-1">
-                                    <button id="clearBtn" class="btn btn-danger w-100">
-                                        CLEAR SEARCHES
-                                    </button>
-                                </div>
+                        <div id="prevSearch" class="form-row">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-12 mb-1">
+                                <button id="clearBtn" class="btn btn-danger w-100">
+                                    CLEAR SEARCHES
+                                </button>
                             </div>
                         </div>
                     </div>
+                </div>
+
             </div>
         </div>
 
-                <!-- Results Section -->
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Current Weather</h5>
+        <!-- Current weather -->
+        <div class="card">
+            <div class="card-header">
+                <h5>Current Weather</h5>
+            </div>
+            <div id="currentCity" class="card-body">
+                <div class="row">
+                    <div class="col-4 text-center my-auto">
+                        <img id="cardStatus" src="">
                     </div>
-                    <div id="currentCity" class="card-body">
-                        <div class="row">
-                            <div class="col-4 text-center my-auto">
-                                <img id="cardStatus" src="">
-                            </div>
-                            <div class="col-8 text-right">
-                                <p id="cardCity" class="mb-1">City</p>
-                                <hr class="mt-0 mb-1">
-                                <p id="cardDate" class="mb-1">Month Day, Year</p>
-                                <p id="cardTemp" class="mb-1">Current Temperature</p>
-                                <p id="cardHilow" class="mb-1">High / Low</p>
-                            </div>
+                    <div class="col-8 text-right">
+                        <p id="cardCity" class="mb-1">City</p>
+                        <hr class="mt-0 mb-1">
+                        <p id="cardDate" class="mb-1">Month Day, Year</p>
+                        <p id="cardTemp" class="mb-1">Current Temperature</p>
+                        <p id="cardHilow" class="mb-1">High / Low</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- Charts -->
+                <div class="row">
+                    <div class="col-4">
+                        <div>
+                            <canvas id="humidChart"></canvas>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-4">
-                                <div>
-                                    <canvas id="humidChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div>
-                                    <canvas id="windChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div>
-                                    <canvas id="uvChart"></canvas>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="col-4">
+                        <div>
+                            <canvas id="windChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div>
+                            <canvas id="uvChart"></canvas>
                         </div>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-header mb-2">
-                        <h5>FORECAST</h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <div id="fiveDay" class="form-row justify-content-center ml-1 mr-1 mb-2">
-                            <!-- <div class="col-12 text-center mb-1">
-                                <button class="btn btn-secondary w-100">DATA DAY1</button>
-                            </div>
-                            <div class="col-12 text-center mb-1">
-                                <button class="btn btn-secondary w-100">DATA DAY2</button>
-                            </div>
-                            <div class="col-12 text-center mb-1">
-                                <button class="btn btn-secondary w-100">DATA DAY3</button>
-                            </div>
-                            <div class="col-12 text-center mb-1">
-                                <button class="btn btn-secondary w-100">DATA DAY4</button>
-                            </div>
-                            <div class="col-12 text-center mb-1">
-                                <button class="btn btn-secondary w-100">DATA DAY5</button>
-                            </div> -->
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <!-- Five-day forecast section -->
+        <div class="card">
+            <div class="card-header mb-2">
+                <h5>FORECAST</h5>
+            </div>
+            <div class="card-body p-0">
+                <div id="fiveDay" class="form-row justify-content-center ml-1 mr-1 mb-2">
                 </div>
-
-
-
+                <div class="card-footer"></div>
+            </div>
+        </div>
     </main>
 
-
-
-
     <!-- Links to script files -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha512-QEiC894KVkN9Tsoi6+mKf8HaCLJvyA6QIRzY5KrfINXYuP9NxdIkRQhGq3BZi0J4I7V5SidGM3XUQ5wFiMDuWg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="moment-timezone-with-data.js"></script>
-    <script src="script.js"></script>   
+    <script src="script.js"></script>
+      
 </body>
 
 </html>
