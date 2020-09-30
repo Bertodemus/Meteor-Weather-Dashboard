@@ -1,8 +1,8 @@
-![logo](/images/logo.png)
-
-# METEOR
+![logo](https://github.com/Bertodemus/Meteor-Weather-Dashboard/blob/master/images/Logo.png)<br>
 A weather dashboard that allows a user to enter in a city name and receive updated weather conditions for that city.
-[link to dashboard](https://bertodemus.github.io/Meteor-Weather-Dashboard/)
+
+## Link
+[Meteor Weather Dashboard](https://bertodemus.github.io/Meteor-Weather-Dashboard/)
 
 ## Overview
 
@@ -33,8 +33,8 @@ A weather dashboard that allows a user to enter in a city name and receive updat
 
 ### Screenshots
 
-![Main view](/images/main.png)
-![Search view](/images/main_search.png)
-![Search view with stored items](/images/search.png)
-![UV chart view](/images/uv.png)
+![Main view](https://github.com/Bertodemus/Meteor-Weather-Dashboard/blob/master/images/Main.png)
+![Search view](https://github.com/Bertodemus/Meteor-Weather-Dashboard/blob/master/images/Main_search.png)
+![Search view with stored items](https://github.com/Bertodemus/Meteor-Weather-Dashboard/blob/master/images/Search.png)
+![UV chart view](https://github.com/Bertodemus/Meteor-Weather-Dashboard/blob/master/images/UV.png)
 
