@@ -38,3 +38,8 @@ A weather dashboard that allows a user to enter in a city name and receive updat
 ![Search view with stored items](https://github.com/Bertodemus/Meteor-Weather-Dashboard/blob/master/images/Search.png)
 ![UV chart view](https://github.com/Bertodemus/Meteor-Weather-Dashboard/blob/master/images/UV.png)
 
+
+## Contact Me
+
+* roberto@robertorubet.com
+
